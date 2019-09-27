@@ -50,6 +50,11 @@ RUN apt-get update && \
     useradd -U -m yoctouser && \
     /usr/sbin/locale-gen en_US.UTF-8
 
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 COPY build-install-dumb-init.sh /
 RUN  bash /build-install-dumb-init.sh && \
      rm /build-install-dumb-init.sh && \
